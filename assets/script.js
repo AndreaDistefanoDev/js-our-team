@@ -37,3 +37,24 @@ const teamMembers = [
   }
 ];
 console.log(teamMembers);
+const containerEl = document.querySelector('.container')
+let cards = ''
+for (let i = 0; i < teamMembers.length; i++) {
+  const member = teamMembers[i];
+  const { name, role, email, img } = member
+  const markupString = `                   
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                           <div class="card-image">
+                           <img src="${img}" alt="${name}"/>
+                           </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>`
+
+}
+console.log(name, role, email, img);
+
