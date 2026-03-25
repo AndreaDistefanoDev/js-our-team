@@ -36,3 +36,4 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+console.log(teamMembers);
