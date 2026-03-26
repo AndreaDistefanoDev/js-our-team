@@ -59,9 +59,32 @@ for (let i = 0; i < teamMembers.length; i++) {
                     </div>
                 </div>
             </div>`
-            cards+=markupString
+  cards += markupString
 
 }
-console.log(cards);
-containerEl.innerHTML= cards
+
+containerEl.innerHTML = cards
+const formEl = document.querySelector('section form')
+const nameField = document.getElementById('name')
+const roleField = document.getElementById('role')
+const emailField = document.getElementById('email')
+const imgField = document.getElementById('img')
+
+formEl.addEventListener(`submit`, function (e) {
+  e.preventDefault()
+  const name = nameField.value
+  const role = roleField.value
+  const email = emailField.value
+  const img = imgField.value
+
+  const newMember = {
+    name,
+    role,
+    email,
+    img
+  }
+
+  teamMembers.unshift(newMember)
+  
+})
 
