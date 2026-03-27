@@ -37,7 +37,7 @@ const teamMembers = [
   }
 ];
 console.log(teamMembers);
-const containerEl = document.getElementById('container')
+const containerEl = document.querySelector('.container')
 let cards = ''
 
 
