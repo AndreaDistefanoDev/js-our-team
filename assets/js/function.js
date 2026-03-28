@@ -15,10 +15,12 @@
 
 
 function generateMarkup(name, role, email, img) {
-
+    const cards=document.createElement('div')
+    cards.classList.add('col')
+    
+    
     const markupString = `                   
-    <div class="row">
-    <div class="col">
+    
     <div class="card">
     <div class="card-body">
     <div class="card-image">
@@ -33,8 +35,8 @@ function generateMarkup(name, role, email, img) {
     </div>
     </div>
     </div>`
-    cards += markupString
-    containerEl.innerHTML = cards;
+    cards.innerHTML= markupString
+    containerEl.appendChild(cards)
     return cards
 
 }
@@ -47,13 +49,43 @@ function generateMarkup(name, role, email, img) {
 */
 
 function renderTeam(items, Element) {
-
-    Element.innerHTML = '';
+    Element.innerHTML=''
 
     for (let i = 0; i < items.length; i++) {
         const member = items[i];
         const { name, role, email, img } = member
-        Element = generateMarkup(name, role, email, img)
+        const card = generateMarkup(name, role, email, img)
+        Element.appendChild(card)
     }
     
+}
+
+
+
+
+/**
+ * Adds a new team member to the team roster
+ * @param {Event} e - The form submission event
+ * @returns {void}
+ * @description Prevents default form submission, collects form field values (name, role, email, img),
+ * creates a new member object, adds it to the beginning of the teamMembers array, and re-renders the team display
+ */
+function addNewMember(e){
+  e.preventDefault()
+  const name = nameField.value
+  const role = roleField.value
+  const email = emailField.value
+  const img = imgField.value
+
+  const newMember = {
+    name,
+    role,
+    email,
+    img
+  }
+
+  teamMembers.unshift(newMember)
+
+  renderTeam(teamMembers,containerEl )
+
 }

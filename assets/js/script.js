@@ -37,8 +37,8 @@ const teamMembers = [
   }
 ];
 console.log(teamMembers);
-const containerEl = document.querySelector('.container')
-let cards = ''
+const containerEl = document.getElementById('row')
+
 
 
 
@@ -51,28 +51,11 @@ const roleField = document.getElementById('role')
 const emailField = document.getElementById('email')
 const imgField = document.getElementById('img')
 
-formEl.addEventListener(`submit`, function (e) {
-  e.preventDefault()
-  const name = nameField.value
-  const role = roleField.value
-  const email = emailField.value
-  const img = imgField.value
 
-  const newMember = {
-    name,
-    role,
-    email,
-    img
-  }
 
-  teamMembers.unshift(newMember)
+formEl.addEventListener(`submit`,addNewMember) 
 
-  renderTeam(teamMembers, cards)
-
-}
-
-)
-renderTeam(teamMembers, cards)
+renderTeam(teamMembers, containerEl )
 
 
 
